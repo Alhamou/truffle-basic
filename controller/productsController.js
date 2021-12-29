@@ -1,9 +1,8 @@
 
 const Web3 = require('web3');
 const contract = require('truffle-contract');
-
 const productsArtifact = require('../build/contracts/Products.json');
-const { from } = require('responselike');
+
 var Products = contract(productsArtifact);
 
 const productsController = (function(){
