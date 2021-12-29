@@ -12,9 +12,6 @@ const productsController = require("./controller/productsController")
 
 app.get("/api/getAccounts", async function(req, res){
 
-
-  console.log("**** GET: /api/getAccounts ****")
-
   try{
 
     const accounts = await web3Controller.eth.getAccounts()
@@ -31,8 +28,6 @@ app.get("/api/getAccounts", async function(req, res){
 
 app.get("/api/getBalance/:adress", async function(req, res){
 
-  console.log("**** GET: /api/getBalance ****")
-  
   try{
 
     const balance = await web3Controller.eth.getBalance(req.params.adress)
@@ -49,8 +44,6 @@ app.get("/api/getBalance/:adress", async function(req, res){
 
 app.get("/api/setProductName", async function(req, res){
 
-    console.log("**** GET: /api/setProductName ****")
-    
     try{
   
       const productName = await productsController.setProductName("Emadoo")
@@ -66,8 +59,6 @@ app.get("/api/setProductName", async function(req, res){
 
 app.get("/api/getProductName", async function(req, res){
 
-    console.log("**** GET: /api/getProductName ****")
-    
     try{
   
       const productName = await productsController.getProductName()
