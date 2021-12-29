@@ -9,15 +9,15 @@ const productsController = (function(){
 
     const obj = {}
   
-    const web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"))
+    const web3 = new Web3(Web3.givenProvider || "http://127.0.0.1:7545")
   
   
-    obj.setProductName = async function(str){
+    obj.setProductName = async function(str, from){
       
         Products.setProvider(web3.currentProvider)
 
         const instance = await Products.deployed()
-        await instance.setProductName(str, {from: "0xB2bb6bFda7dfD123bAe07Fb9Ba5aadC164a297fb"});
+        await instance.setProductName(str, {from: from});
         return await instance.getProductName();
         
     }

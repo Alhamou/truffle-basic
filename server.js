@@ -42,13 +42,16 @@ app.get("/api/getBalance/:adress", async function(req, res){
 
 })
 
-app.get("/api/setProductName", async function(req, res){
+app.get("/api/setProductName/:str/:from", async function(req, res){
 
     try{
-  
-      const productName = await productsController.setProductName("Emadoo")
-      res.end(productName)
-  
+    
+        const {from, str} = req.params
+
+        console.log(from)
+        const productName = await productsController.setProductName(str, from)
+        res.end(productName)
+
     } catch(error){
         console.log(error)
         res.status(400).json({error})
