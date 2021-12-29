@@ -5,8 +5,6 @@ const port = 3000 || process.env.PORT;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use('/', express.static('public_static'));
-
 
 
 const web3Controller = require("./controller/web3Controller")
